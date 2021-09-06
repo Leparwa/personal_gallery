@@ -1,16 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Question
+from .models import Image
 import datetime as dt
 
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    output = ', '.join([q.question_text for q in latest_question_list])
+   
+ 
     date = dt.date.today()
-    return render(request, 'all_photos/base.html',{"title":"gallery","date": date})
+    return render(request, 'all_photos/base.html',{"title":"gallery","photos": all_photos})
 def all_photos(request):
-    return render(request, 'all_photos/photos.html',{"title":"photos"})
+    all_photos = Image.objects.all()
+    return render(request, 'all_photos/photos.html',{"title":"photos", "photos":all_photos})
 
 
 def results(request, question_id):
