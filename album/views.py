@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render, resolve_url
 from django.http import HttpResponse
 from .models import Image, Category, Location
 import datetime as dt
@@ -6,7 +6,8 @@ import datetime as dt
 
 def index(request):
     date = dt.date.today()
-    return render(request, 'all_photos/base.html',{"title":"gallery","date":date})
+    return redirect('photos')
+    # return render(request, 'all_photos/base.html',{"title":"gallery","date":date})
 def all_photos(request):
     all_photos = Image.objects.all()
     category = Category.objects.all()
