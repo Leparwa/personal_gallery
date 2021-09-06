@@ -21,8 +21,7 @@
 <body  id="body-pd">
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i></div>
-        <h6 class='text-center' style="font-family: 'Times New Roman', Times, serif;"><strong>LEPHOTOS GALLERY MANAGEMENT SYSTEM </strong></h6> 
-        <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+        <!-- <h6 class='text-center' style="font-family: 'Times New Roman', Times, serif;"><strong>LEPHOTOS GALLERY MANAGEMENT SYSTEM </strong></h6>  -->
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
@@ -34,12 +33,12 @@
                 </a>
             </div>
             <div class="nav_list"> 
-                <a href="#" class="nav_link active">
+                <a href="{% url 'index' %}" class="nav_link">
                     <i class='bx bxs-dashboard nav_icon'></i> 
                     <span class="tooltip">Dashboard</span> 
                     <span class="nav_name">Dashboard</span> 
                 </a>
-                <a href="#" class="nav_link"> 
+                <a href="{% url 'photos' %}" class="nav_link active"> 
                     <i class='bx bx-photo-album nav_icon'></i>
                     <span class="nav_name">My photos</span>
                 </a> 
