@@ -22,9 +22,10 @@ def add_photo(request):
             form.save()
             # Get the current instance object to display in the template
             data = form.instance
-            img_obj = Image(image= data.image.url, image_name= data.image_name, image_description= data.image_description, category = data.category, location= data.location)
+            img_obj = Image(image= data.image.url, image_name= data.image_name, image_description= data.image_description,  image_category = data.image_category,  image_location= data. image_location)
             
             print(img_obj)
+            img_obj.save_photo()
             return render(request, 'all_photos/image.html', {'form': form, 'img_obj': img_obj})
     else:
         form = ImageForm()
