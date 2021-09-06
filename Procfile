@@ -1,1 +1,1 @@
-web: gunicorn personal_gallery.wsgi
+web: gunicorn personal_gallery.wsgi --log-file -
