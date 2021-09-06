@@ -21,3 +21,8 @@ class Image(models.Model):
     image_description = models.TextField(max_length=200)
     image_location = models.ForeignKey(Location, on_delete=models.CASCADE)
     image_category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image_name
+    def save_photo(self):
+        self.save()
