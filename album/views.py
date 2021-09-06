@@ -19,7 +19,6 @@ def add_photo(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
             # Get the current instance object to display in the template
             data = form.instance
             img_obj = Image(image= data.image.url, image_name= data.image_name, image_description= data.image_description,  image_category = data.image_category,  image_location= data. image_location)
