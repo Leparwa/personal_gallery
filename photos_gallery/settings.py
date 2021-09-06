@@ -95,15 +95,10 @@ WSGI_APPLICATION = 'photos_gallery.wsgi.application'
 #    }
 # production
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pitches',
-        'USER': 'leresipitchdb',
-        'PASSWORD': 'pitchidea',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+   }
  
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
