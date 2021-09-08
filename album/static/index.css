@@ -374,3 +374,68 @@ a {
         color: #30373e;
         border-color: #30373e
     }
+
+    .modal .modal-dialog.modal-dialog-centered {
+        position: fixed;
+        bottom: 50%;
+        right: 50%;
+        width: 100%;
+        transform: translate(50%, 50%);
+
+    }
+    .modal-content{
+        background-color: rgb(208, 195, 233);
+
+    }
+  
+
+.modal-body .field {
+    margin: 15px 0px -5px 0px;
+    height: 45px;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    padding: 0 5px
+}
+
+.modal-body .field.active {
+    border-color: #7d2ae8
+}
+
+.field span {
+    width: 50px;
+    font-size: 1.1rem
+}
+
+.field.active span {
+    color: #7d2ae8
+}
+
+.field input {
+    border: none;
+    outline: none;
+    font-size: 0.89rem;
+    width: 100%;
+    height: 100%
+}
+
+.field button {
+    padding: 5px 16px;
+    color: #fff;
+    background: #7d2ae8;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    font-weight: 500
+}
+.modal-body .icons {
+    margin: 15px 0px 20px 0px
+}
+
+.modal-body .icons a {
+    text-decoration: none;
+    border: 1px solid transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: all 0.3s ease-in-out
+}

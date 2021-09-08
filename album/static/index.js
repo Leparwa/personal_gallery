@@ -32,3 +32,47 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     linkColor.forEach(l=> l.addEventListener('click', colorLink))
     });
+
+   $(document).on("click", ".open-incident", function (e) {
+    e.preventDefault();
+    var $popup = $("#popup");
+    var popup_url = $(this).data("popup-url");
+    $(".modal-body", $popup).load(popup_url, function () {
+      $popup.modal("show");
+    });
+  });
+  document.addEventListener('DOMContentLoaded',function(e){
+    let field = document.querySelector('.field');
+    let input = document.querySelector('input');
+    let copyBtn = document.querySelector('.copyLink');
+    
+    copyBtn.onclick = () =>{
+    input.select();
+    if(navigator.clipboard("copy")){
+    field.classList.add('active');
+    copyBtn.innerText = 'Copied';
+    setTimeout(()=>{
+    field.classList.remove('active');
+    copyBtn.innerText = 'Copy';
+    },3500)
+    }
+    }
+    })
+    function copyLink() {
+        /* Get the text field */
+        var copyText = document.getElementById("input");
+        var copyBtn = document.getElementById("buttonc");
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+      
+         /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copyText.value);
+      
+        /* Alert the copied text */
+        copyBtn.innerText = 'Copied';
+        setTimeout(()=>{
+            copyBtn.innerText = 'Copy';
+            },3500)
+
+      }

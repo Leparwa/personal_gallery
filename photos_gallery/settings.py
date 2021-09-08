@@ -80,7 +80,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap3'
+    'bootstrap_modal_forms',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -114,31 +115,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'photos_gallery.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-# if config('MODE')=="dev":
-#    DATABASES = {
-#        'default': {
-#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#            'NAME': config('DB_NAME'),
-#            'USER': config('DB_USER'),
-#            'PASSWORD': config('DB_PASSWORD'),
-#            'HOST': config('DB_HOST'),
-#            'PORT': '',
-#        }
-       
-#    }
-# production
-
-# DATABASES = {
-#        'default': dj_database_url.config(
-#            default=config('DATABASE_URL')
-#        )
-#    }
- 
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

@@ -1,0 +1,14 @@
+
+  <div>
+    <p class="pl-2">
+      </p>
+      <h4>Image Name: {{image.name}} </h4>
+    <img src="{{image.image.url}}" alt="" style="max-width: 200px; max-height: 200px;">
+    <div>
+        <p>{{image.description}}</p> 
+        <br>
+        <hr>
+        <p>Location: {{image.location}}</p>
+        <div class="field d-flex align-items-center justify-content-between"> <span class="fa fa-link text-center"></span> <input type="text" id="input" value="{{image.image.url}}"> <button id="buttonc" onclick="copyLink()">Copy</button> </div>
+    </div>
+  </div>

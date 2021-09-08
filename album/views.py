@@ -1,8 +1,13 @@
+from django.http.response import Http404
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect, render, resolve_url
 from django.http import HttpResponse
 from .models import Image, Category, Location
 import datetime as dt
 from .forms import ImageForm
+from bootstrap_modal_forms.generic import (
+  BSModalReadView,
+  )
 
 
 def index(request):
@@ -50,4 +55,13 @@ def filter_by_location(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all_photos/search.html',{"message":message})
+
+
+def get_image_id(request, id):
+    try:
+        image = Image.get_image_by_id(id)
+    except Image.DoesNotExist:
+        raise Http404()
+    return render(request, 'all_photos/modal_view.html', {"image":image})
+
 

@@ -1,21 +1,20 @@
 {% extends 'all_photos/base.html' %}
 {% block content %} 
+<div class="container">
+    <ul class="p-2 ">
 
-    <!-- begin col-9 -->
+        {% for photo in photos %}
+          <li class="p-2">
+                  <a href="{% url 'photo' id=photo.id %}" data-popup-url="{% url 'photo' id=photo.id %}"  class="open-incident">
+                      <img src="{{photo.image.url}}" alt="My Photo" loading="lazy">
+                  </a>          
+          </li>
+          {% endfor %}
 
-        <ul class="p-2  w-100vw">
-          {% for photo in photos %}
-            <li class="m-1 d-flex justify-content-start">
-                <span>
-                    <img src="{{photo.image.url}}" alt="My Photo" loading="lazy">
-                </span>
-            <div class="p-5">
-                <p>
-                    description
-                </p>
-            </div>
-                    
-            </li>
-            {% endfor %}
-          </ul>
+        </ul>
+
+
+</div>
+
+
 {%endblock%}
