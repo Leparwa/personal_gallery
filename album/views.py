@@ -19,15 +19,35 @@ def add_photo(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             # Get the current instance object to display in the template
             data = form.instance
-            img_obj = Image(image= data.image.url, image_name= data.image_name, image_description= data.image_description,  image_category = data.image_category,  image_location= data. image_location)
-            
-            print(img_obj)
-            img_obj.save_photo()
-            return render(request, 'all_photos/image.html', {'form': form, 'img_obj': img_obj})
+            print(data.image.url)
+            Image(image= data.image.url, name= data.name, description= data.description,  category = data.category,  location= data.location)
+            return redirect('photos')
     else:
         form = ImageForm()
     return render(request, 'all_photos/image.html', {'form': form})
 
+def search_image_by_category(request):
+    if 'category' in request.GET and request.GET["category"]:
+        search_term = request.GET.get("category")
+        searched_images = Image.search_image(search_term)
+        message = f"{search_term}"
+        return render(request, 'all_photos/search.html',{"message":message,"images": searched_images})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all_photos/search.html',{"message":message})
+
+def filter_by_location(request):
+    if 'location' in request.GET and request.GET["location"]:
+        search_term = request.GET.get("location")
+        searched_images = Image.filter_by_location(search_term)
+        message = f"{search_term}"
+        return render(request, 'all_photos/search.html',{"message":message,"images": searched_images})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all_photos/search.html',{"message":message})
 
