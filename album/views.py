@@ -5,9 +5,6 @@ from django.http import HttpResponse
 from .models import Image, Category, Location
 import datetime as dt
 from .forms import ImageForm
-from bootstrap_modal_forms.generic import (
-  BSModalReadView,
-  )
 
 
 def index(request):
